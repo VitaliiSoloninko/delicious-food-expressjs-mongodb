@@ -16,12 +16,7 @@ dbConnect()
 
 const app = express()
 app.use(express.json())
-app.use(
-	cors({
-		credentials: true,
-		origin: ['https://expressjs-delicious-food-production.up.railway.app'],
-	})
-)
+app.use(cors())
 
 app.use('/api/foods', foodRouter)
 app.use('/api/users', userRouter)

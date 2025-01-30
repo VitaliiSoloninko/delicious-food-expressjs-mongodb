@@ -19,7 +19,7 @@ app.use(express.json())
 app.use(
 	cors({
 		credentials: true,
-		origin: ['http://localhost:4200'],
+		origin: ['https://expressjs-delicious-food-production.up.railway.app'],
 	})
 )
 

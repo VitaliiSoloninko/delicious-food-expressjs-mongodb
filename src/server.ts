@@ -1,5 +1,4 @@
 import dotenv from 'dotenv'
-import path from 'path'
 dotenv.config()
 
 import cors from 'cors'
@@ -22,9 +21,13 @@ app.use('/api/foods', foodRouter)
 app.use('/api/users', userRouter)
 app.use('/api/orders', orderRouter)
 
-app.use(express.static(path.join('public', 'browser')))
-app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname, 'public', 'browser', 'index.html'))
+// app.use(express.static(path.join('public', 'browser')))
+// app.get('*', (req, res) => {
+// 	res.sendFile(path.join(__dirname, 'public', 'browser', 'index.html'))
+// })
+
+app.get('/', (req, res) => {
+	res.send('Foodmine server started successfully!')
 })
 
 const port = process.env.PORT || 5000

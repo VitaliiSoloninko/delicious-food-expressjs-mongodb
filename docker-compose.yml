@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  foodmine-expressjs:
+    build: .
+    ports:
+      - '5004:5004'
+    environment:
+      - MONGODB_URI=mongodb://foodmine-mongodb:27017/foodmine
+    depends_on:
+      - foodmine-mongodb
+    volumes:
+      - .:/app
+      - /app/node_modules
+  foodmine-mongodb:
+    image: mongo:6.0
+    restart: always
+    ports:
+      - '27018:27017'
+    volumes:
+      - mongo-data:/data/db
+volumes:
+  mongo-data:

@@ -9,10 +9,6 @@ import orderRouter from './routers/order.router'
 import userRouter from './routers/user.router'
 dbConnect()
 
-// cors for redirect localhost server
-// localhost: 4200 - Angular
-// localhost: 5000 - Express
-
 const app = express()
 app.use(express.json())
 app.use(cors())
@@ -20,11 +16,6 @@ app.use(cors())
 app.use('/api/foods', foodRouter)
 app.use('/api/users', userRouter)
 app.use('/api/orders', orderRouter)
-
-// app.use(express.static(path.join('public', 'browser')))
-// app.get('*', (req, res) => {
-// 	res.sendFile(path.join(__dirname, 'public', 'browser', 'index.html'))
-// })
 
 app.get('/', (req, res) => {
 	res.send('Foodmine server started successfully!')
